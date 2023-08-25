@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hackathon - Sentiment Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        #categoryDropdown {
+            width: 80%;
+            padding: 10px;
+        }
+        #subcategoryDropdown {
+            width: 80%;
+            padding: 10px;
+        }
+        #analyzeButton {
+            background-color: #0074D9;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mood Magnet</h1>
+    
+    <label for="categoryDropdown">Please select a Category:</label>
+    <select id="categoryDropdown">
+        <option value="AC">AC</option>
+        <option value="Headphones">Headphones</option>
+        <option value="Perfumes">Perfumes</option>
+        <option value="Dinner Sets">Dinner Sets</option>
+        <option value="Cargoes">Cargoes</option>
+    </select>
+    <br>
+    <label for="subcategoryDropdown">Please select a Subcategory:</label>
+    <select id="subcategoryDropdown">
+        <!-- Subcategories will be populated dynamically based on the selected category -->
+    </select>
+    <br>
+    <button id="analyzeButton">Get the Mood</button>
+    <br>
+    <div id="result"></div>
+
+    <script>
+        const categoryDropdown = document.getElementById('categoryDropdown');
+        const subcategoryDropdown = document.getElementById('subcategoryDropdown');
+
+        // Define subcategories for each category
+        const subcategories = {
+            AC: ['Candes', 'LLoyd', 'Crompton'],
+            Headphones: ['Boat', 'Bose', 'Hammer'],
+            Perfumes: ['Chanel', 'Bellavita', 'Charlene'],
+            'Dinner Sets': ['Cello', 'Tupperware', 'Signoraware'],
+            Cargoes: ['Max', 'Pantaloons', 'Levis'],
+        };
+
+        // Populate subcategory dropdown based on the selected category
+        categoryDropdown.addEventListener('change', function() {
+            const selectedCategory = categoryDropdown.value;
+            const subcategoryOptions = subcategories[selectedCategory];
+
+            // Clear existing options
+            subcategoryDropdown.innerHTML = '';
+
+            // Add new options
+            if (subcategoryOptions) {
+                subcategoryOptions.forEach(subcategory => {
+                    const option = document.createElement('option');
+                    option.value = subcategory;
+                    option.text = subcategory;
+                    subcategoryDropdown.appendChild(option);
+                });
+            }
+        });
+
+        document.getElementById('analyzeButton').addEventListener('click', function() {
+            const selectedCategory = categoryDropdown.value;
+            const selectedSubcategory = subcategoryDropdown.value;
+
+            // Use the selectedCategory and selectedSubcategory in your API request
+            const text = `${selectedCategory} - ${selectedSubcategory}`;
+
+            // The rest of your code for making the API request and displaying the result
+            fetch('http://localhost:5000/analyze_sentiment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text: text }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerHTML = `Sentiment: ${data.sentiment}`;
+            })
+            .catch(error => {
+                console.error('Error analyzing sentiment:', error);
+            });
+        });
+    </script>
+</body>
+</html>
