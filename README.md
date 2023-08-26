@@ -12,4 +12,6 @@ market.
 
 ## 
  ![image](https://github.com/radhikaa-gupta/MoodMagnet/assets/123308047/1feb8649-a919-469f-a12c-6d8b73a3c9cc)
+ ![image](https://github.com/radhikaa-gupta/MoodMagnet/assets/123308047/c9965512-3db6-4ff3-a432-725f4f6e931d)
+
 
