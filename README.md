@@ -11,4 +11,5 @@
 market.
 
 ## 
- ![Uploading image.png…]()
+ ![image](https://github.com/radhikaa-gupta/MoodMagnet/assets/123308047/1feb8649-a919-469f-a12c-6d8b73a3c9cc)
+
