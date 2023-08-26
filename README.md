@@ -9,3 +9,6 @@
 
  Currently, the project utilizes a limited dataset, analyzing reviews of popular products across various categories. However, the project holds immense potential, with the ability to expand into a vast 
 market.
+
+## 
+ ![Uploading image.png…]()
