@@ -10,9 +10,10 @@
  Currently, the project utilizes a limited dataset, analyzing reviews of popular products across various categories. However, the project holds immense potential, with the ability to expand into a vast 
 market.
 
-## 
+## Let's take a glimpse at some insights.
  
  <img src = "https://github.com/radhikaa-gupta/MoodMagnet/assets/123308047/1feb8649-a919-469f-a12c-6d8b73a3c9cc"  width = 800 height =400 >
+ 
  ![image](https://github.com/radhikaa-gupta/MoodMagnet/assets/123308047/c9965512-3db6-4ff3-a432-725f4f6e931d)
 
 
